@@ -6,6 +6,8 @@ import About from '../Pages/About/About';
 import OurSolutions from '../Pages/OurSolutions/OurSolutions';
 import Technology from '../Pages/Tecnology/Tecnology';
 import Benefits from '../Pages/Benefits/Benefits';
+import CaseUse from '../Pages/CaseUse/CaseUse';
+import GetStarted from '../Pages/GetStarted/GetStarted';
 
 const Main = () => {
     return (
@@ -16,6 +18,8 @@ const Main = () => {
             <OurSolutions />
             <Technology />
             <Benefits />
+            <CaseUse />
+            <GetStarted />
         </div>
     );
 };
