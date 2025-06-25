@@ -1,17 +1,13 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-  const location = useLocation();
-  const isActive = (path) => location.pathname === path;
-
   return (
-    <div className="shadow-md py-4 primary">
-      {/* Drawer wrapper */}
+    <div className="fixed top-0 left-0 w-full shadow-md py-4 primary z-50">
       <div className="drawer drawer-end lg:drawer-static">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+
+        {/* Navbar Content */}
         <div className="drawer-content">
-          {/* Navbar */}
           <div className="flex justify-between w-11/12 mx-auto items-center">
             <a className="text-2xl font-bold text-white">Clin</a>
 
@@ -29,47 +25,27 @@ const Navbar = () => {
             {/* Desktop menu */}
             <div className="hidden lg:flex">
               <ul className="flex items-center gap-6 text-[18px] font-semibold">
-                {[
-                  { name: "About", path: "/about" },
-                  { name: "Our Solutions", path: "/solutions" },
-                  { name: "In Action", path: "/action" },
-                  { name: "Technology", path: "/technology" },
-                  { name: "Benefits", path: "/benefits" },
-                  { name: "Case Use", path: "/case" },
-                ].map((item) => (
-                  <li key={item.path}>
-                    <Link
-                      to={item.path}
-                      className={`group relative px-1 transition-all duration-300 ${
-                        isActive(item.path) ? "text-white" : "text-[#93A2B7]"
-                      }`}
-                    >
-                      {item.name}
-                      <span
-                        className={`absolute left-0 -bottom-1 h-[2px] w-full bg-white transform origin-left transition-transform duration-300 ${
-                          isActive(item.path)
-                            ? "scale-x-100"
-                            : "scale-x-0 group-hover:scale-x-100"
-                        }`}
-                      ></span>
-                    </Link>
-                  </li>
-                ))}
+                <li><a href="#About" className="text-[#93A2B7] hover:text-white transition">About</a></li>
+                <li><a href="#Solutions" className="text-[#93A2B7] hover:text-white transition">Our Solutions</a></li>
+                <li><a href="#Action" className="text-[#93A2B7] hover:text-white transition">In Action</a></li>
+                <li><a href="#Technology" className="text-[#93A2B7] hover:text-white transition">Technology</a></li>
+                <li><a href="#Benefits" className="text-[#93A2B7] hover:text-white transition">Benefits</a></li>
+                <li><a href="#Case" className="text-[#93A2B7] hover:text-white transition">Case Use</a></li>
               </ul>
             </div>
           </div>
         </div>
 
-        {/* Drawer (mobile) -- no changes */}
+        {/* Drawer content (mobile menu) */}
         <div className="drawer-side z-50">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-[40%] min-h-full bg-base-200 text-base-content">
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/solutions">Our Solutions</Link></li>
-            <li><Link to="/action">In Action</Link></li>
-            <li><Link to="/technology">Technology</Link></li>
-            <li><Link to="/benefits">Benefits</Link></li>
-            <li><Link to="/case">Case Use</Link></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Solutions">Our Solutions</a></li>
+            <li><a href="#Action">In Action</a></li>
+            <li><a href="#Technology">Technology</a></li>
+            <li><a href="#Benefits">Benefits</a></li>
+            <li><a href="#Case">Case Use</a></li>
           </ul>
         </div>
       </div>

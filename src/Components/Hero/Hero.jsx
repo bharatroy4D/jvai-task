@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <div className='flex flex-col justify-center items-center space-y-5'>
+        <div id='hero' className='flex flex-col justify-center items-center space-y-5'>
             <h1 className='text-5xl font-bold text-center text-[#3E84F6] mt-20'>Clin Technologies</h1>
             <h2 className='text-2xl text-[#93A2B7] font-bold px-10 py-6 mx-auto text-center'><span>Revolutionizing clinical documentation through <span className='text-[#F59E0B]'> HIPAA COMPLIANT</span> advanced artificial</span><br /> <span>intelligence, giving healthcare providers more time for what truly matters — patient care. try it </span> <br /> for <span className='text-[#F59E0B]'> FREE </span> today</h2>
 
