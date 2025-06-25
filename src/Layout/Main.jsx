@@ -5,6 +5,7 @@ import Hero from '../Components/Hero/Hero';
 import About from '../Pages/About/About';
 import OurSolutions from '../Pages/OurSolutions/OurSolutions';
 import Technology from '../Pages/Tecnology/Tecnology';
+import Benefits from '../Pages/Benefits/Benefits';
 
 const Main = () => {
     return (
@@ -14,6 +15,7 @@ const Main = () => {
             <About />
             <OurSolutions />
             <Technology />
+            <Benefits />
         </div>
     );
 };
