@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.primary {
+  background-color: #0F172A;
+}
+
+.secondary {
+  background-color: #1E293B;
+}
