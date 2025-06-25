@@ -17,12 +17,12 @@ const Technology = () => {
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Card 1 - Sophisticated Natural Language Processing */}
-                    <div className="bg-[#132247] border border-slate-700 rounded-xl p-8 hover:border-blue-500 transform hover:-translate-y-3 transition duration-700">
+                    <div className="bg-[#132247]  rounded-xl p-8 hover:border-blue-500 transform hover:-translate-y-3 transition duration-700">
                         <div className="mb-6">
                             <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mb-4">
                                 <Brain className="w-6 h-6 text-white" />
                             </div>
-                            <h3 className="text-2xl font-semibold text-blue-400 mb-4">
+                            <h3 className="text-2xl font-semibold border-b pb-5 border-blue-400/30 text-blue-400 mb-4">
                                 Sophisticated Natural Language Processing
                             </h3>
                         </div>
@@ -32,12 +32,12 @@ const Technology = () => {
                     </div>
 
                     {/* Card 2 - Learning Mode & Personalization */}
-                    <div className="bg-[#132247] border border-slate-700 rounded-xl p-8 hover:border-blue-500 transform hover:-translate-y-3 transition duration-700">
+                    <div className="bg-[#132247]  rounded-xl p-8 hover:border-blue-500 transform hover:-translate-y-3 transition duration-700">
                         <div className="mb-6">
                             <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mb-4">
                                 <BookOpen className="w-6 h-6 text-white" />
                             </div>
-                            <h3 className="text-2xl font-semibold text-blue-400 mb-4">
+                            <h3 className="text-2xl font-semibold border-b pb-5 border-blue-400/30 text-blue-400  mb-4">
                                 Learning Mode & Personalization
                             </h3>
                         </div>
@@ -47,7 +47,7 @@ const Technology = () => {
                     </div>
 
                     {/* Card 3 - Robust Data Privacy & Security */}
-                    <div className="bg-[#132247] border border-slate-700 rounded-xl p-8 hover:border-blue-500 transform hover:-translate-y-3 transition duration-700">
+                    <div className="bg-[#132247]  rounded-xl p-8 hover:border-blue-500 transform hover:-translate-y-3 transition duration-700">
                         <div className="mb-6">
                             {/* Badges */}
                             <div className="flex flex-wrap gap-6 mb-4">
@@ -60,7 +60,7 @@ const Technology = () => {
                                     BUSINESS ASSOCIATE AGREEMENT
                                 </div>
                             </div>
-                            <h3 className="text-2xl font-semibold text-blue-400 mb-4">
+                            <h3 className="text-2xl font-semibold border-b pb-5 border-blue-400/30 text-blue-400 mb-4">
                                 Robust Data Privacy & Security
                             </h3>
                         </div>

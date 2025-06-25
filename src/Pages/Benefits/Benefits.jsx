@@ -1,13 +1,12 @@
 import React from 'react';
+import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 
 const Benefits = () => {
   return (
-    <div id='Benefits' className="min-h-screen bg-slate-800 text-white flex flex-col justify-center items-center px-8" style={{ backgroundColor: '#334155' }}>
+    <div id='Benefits' className="min-h-screen secondary text-white flex flex-col justify-center items-center py-20 px-8" style={{ backgroundColor: '#334155' }}>
       {/* Benefits Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold text-blue-400 mb-8">
-          Benefits
-        </h1>
+      <div className="text-center mb-8">
+        <SectionTitle title={'Benefits'} />
       </div>
 
       {/* Benefits Content */}
