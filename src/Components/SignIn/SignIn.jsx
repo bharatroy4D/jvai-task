@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
+import img from '../../assets/Nil vyaa-01 1.png'
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
@@ -15,21 +16,15 @@ const SignIn = () => {
         <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center py-10 px-4">
             <div className="w-full max-w-md">
                 {/* Logo/Icon */}
-                <div className="text-center mb-8">
+                <div className="text-center mb-3">
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                        <div className="w-8 h-8 bg-blue-500 rounded-full relative">
-                            <div className="absolute top-1 left-2 w-1 h-1 bg-white rounded-full"></div>
-                            <div className="absolute top-1 right-2 w-1 h-1 bg-white rounded-full"></div>
-                            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-1 bg-white rounded-full"></div>
-                        </div>
+                        <img src={img} alt="" className='w-60' />
                     </div>
-                    <div className="text-xs text-gray-400 font-medium">Technologies</div>
                 </div>
 
                 {/* Welcome Text */}
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-gray-900 mb-2">Hello, Welcome!</h1>
-                    <p className="text-gray-600">Please Enter Your Details Below To Continue</p>
                 </div>
 
                 {/* Form */}
