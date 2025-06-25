@@ -37,13 +37,15 @@ const GetStarted = () => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-4">
-                    <button className="px-8 py-3 bg-transparent border border-blue-400 text-blue-400 rounded-full hover:bg-blue-400 hover:text-white transition-all duration-300 font-medium">
-                        Login
+                <div className='flex gap-5 mb-10'>
+                    <button className='text-lg font-medium transform border-2 border-[#3E84F6] rounded-full px-5 py-2 hover:shadow-md hover:shadow-[#3E84F6] hover:-translate-y-1 transition duration-300'>
+                        Sign in
                     </button>
-                    <button className="px-8 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-all duration-300 font-medium shadow-lg">
-                        Signup
+
+                    <button className='text-lg font-medium transform border-2 border-[#3E84F6] bg-[#3E84F6] text-white rounded-full px-5 py-2 hover:shadow-md hover:shadow-[#3E84F6] hover:-translate-y-1 transition duration-300'>
+                        Sign up
                     </button>
+
                 </div>
             </div>
 

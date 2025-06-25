@@ -42,13 +42,15 @@ const Benefits = () => {
       </div>
 
       {/* Buttons */}
-      <div className="flex gap-4">
-        <button className="px-8 py-3 border-2 border-blue-400 text-white rounded-full text-lg font-medium hover:bg-blue-400 hover:text-slate-800 transition-colors">
-          Login
+      <div className='flex gap-5 mb-10'>
+        <button className='text-lg font-medium transform border-2 border-[#3E84F6] rounded-full px-5 py-2 hover:shadow-md hover:shadow-[#3E84F6] hover:-translate-y-1 transition duration-300'>
+          Sign in
         </button>
-        <button className="px-8 py-3 bg-blue-500 text-white rounded-full text-lg font-medium hover:bg-blue-600 transition-colors">
-          Signup
+
+        <button className='text-lg font-medium transform border-2 border-[#3E84F6] bg-[#3E84F6] text-white rounded-full px-5 py-2 hover:shadow-md hover:shadow-[#3E84F6] hover:-translate-y-1 transition duration-300'>
+          Sign up
         </button>
+
       </div>
     </div>
   );
