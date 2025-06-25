@@ -3,11 +3,10 @@ import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const location = useLocation();
-
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div className="shadow-md py-1.5 primary">
+    <div className="shadow-md py-4 primary">
       {/* Drawer wrapper */}
       <div className="drawer drawer-end lg:drawer-static">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -29,7 +28,7 @@ const Navbar = () => {
 
             {/* Desktop menu */}
             <div className="hidden lg:flex">
-              <ul className="menu menu-horizontal text-[18px] font-semibold gap-6">
+              <ul className="flex items-center gap-6 text-[18px] font-semibold">
                 {[
                   { name: "About", path: "/about" },
                   { name: "Our Solutions", path: "/solutions" },
@@ -41,15 +40,16 @@ const Navbar = () => {
                   <li key={item.path}>
                     <Link
                       to={item.path}
-                      className={`relative px-1 hover:text-white transition-colors duration-300 ${
+                      className={`group relative px-1 transition-all duration-300 ${
                         isActive(item.path) ? "text-white" : "text-[#93A2B7]"
                       }`}
                     >
                       {item.name}
-                      {/* underline */}
                       <span
-                        className={`absolute left-0 -bottom-1 h-[2px] w-full bg-white transform scale-x-0 origin-left transition-transform duration-300 ${
-                          isActive(item.path) ? "scale-x-100" : "group-hover:scale-x-100"
+                        className={`absolute left-0 -bottom-1 h-[2px] w-full bg-white transform origin-left transition-transform duration-300 ${
+                          isActive(item.path)
+                            ? "scale-x-100"
+                            : "scale-x-0 group-hover:scale-x-100"
                         }`}
                       ></span>
                     </Link>
