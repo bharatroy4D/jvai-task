@@ -16,12 +16,9 @@ const GetStarted = () => {
                 </p>
 
                 {/* Contact Form Box */}
-                <div className="w-full max-w-md mb-8">
-                    <div className="bg-slate-700/50 border border-slate-600 rounded-lg p-6 mb-6">
-                        <textarea
-                            placeholder="Enter your message here..."
-                            className="w-full h-32 bg-transparent border-none outline-none text-gray-300 placeholder-gray-500 resize-none"
-                        />
+                <div className="w-full max-w-xl mb-8 ">
+                    <div className="bg-slate-700/50 border border-slate-600 shadow-md rounded-lg p-10 mb-6">
+                        <p>Or reach us directly via email at <a href="#">support@clintechso.com</a></p>
                     </div>
 
                     {/* Contact Email */}
