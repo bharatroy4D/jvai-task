@@ -69,9 +69,9 @@ const RealChat = () => {
                     <div className='flex items-center  gap-5'>
                         {/* Attachment Button */}
                         <button className="p-4 text-gray-400 hover:text-white transition-colors">
-                            <Paperclip className="w-5 h-5" />
+                            <Paperclip className="w-6 h-6" />
                         </button>
-                        <div className="relative w-full flex items-center bg-slate-600 rounded-lg" >
+                        <div className="relative w-full border-2 border-blue-600 bg-slate-600 rounded-lg" >
                             {/* Message Input */}
                             <input
                                 type="text"
@@ -79,13 +79,13 @@ const RealChat = () => {
                                 value={message}
                                 onChange={(e) => setMessage(e.target.value)}
                                 onKeyPress={handleKeyPress}
-                                className="flex-1 bg-transparent  text-white placeholder-gray-400 px-4 py-4 focus:outline-none text-base"
+                                className="flex-1 bg-transparent  text-white placeholder-gray-400 px-4 py-6 focus:outline-none text-base"
                             />
                         </div>
                         <div className='flex '>
                             {/* Voice Button */}
                             <button className="p-4 text-gray-400 hover:text-white transition-colors">
-                                <Mic className="w-5 h-5" />
+                                <Mic className="w-6 h-6" />
                             </button>
 
                             {/* Send Button */}
@@ -93,7 +93,7 @@ const RealChat = () => {
                                 onClick={handleSendMessage}
                                 className="p-4 text-gray-400 hover:text-white transition-colors"
                             >
-                                <Send className="w-5 h-5" />
+                                <Send className="w-6 h-6" />
                             </button>
                         </div>
                     </div>

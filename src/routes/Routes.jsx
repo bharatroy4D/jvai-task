@@ -8,6 +8,8 @@ import Toper from "../Pages/Dashboaard/Toper/Toper";
 import RealChat from "../Pages/Dashboaard/RealChat/RealChat";
 import ManageSubcrib from "../Pages/Dashboaard/ManageSubcrib/ManageSubcrib";
 import Users from "../Pages/Dashboaard/Users/User";
+import HelpSupportForm from "../Pages/Dashboaard/Help&Support/Help&Support";
+import FAQ from "../Pages/Dashboaard/FAQ/FAQ";
 
 export const router = createBrowserRouter([
     {
@@ -41,6 +43,14 @@ export const router = createBrowserRouter([
             {
                 path: 'users',
                 element: <Users />
+            },
+            {
+                path: 'helpSupport',
+                element: <HelpSupportForm />
+            },
+            {
+                path: 'faq',
+                element: <FAQ />
             },
         ]
     }

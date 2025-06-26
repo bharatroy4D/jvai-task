@@ -10,14 +10,13 @@ export default function CreateAccountForm() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-gray-200 flex items-center justify-center p-4">
+      <div className="w-full bg-white p-5 rounded-md shadow max-w-md">
         {/* Logo */}
-        <div className="text-center mb-3">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full">
                 <img src={img} alt="" className='w-60' />
           </div>
-         
         </div>
 
         {/* Form Container */}
