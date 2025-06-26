@@ -26,7 +26,7 @@ const Sidebar = () => {
     },
     {
       id: 3,
-      label: 'Manage Subscription',
+      label: 'Manage Subscrip..',
       icon: Zap,
       type: 'link',
       path: '/dashboard/manage',

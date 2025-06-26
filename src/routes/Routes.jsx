@@ -6,6 +6,7 @@ import SignUp from "../Components/SignUp/SignUp";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import Toper from "../Pages/Dashboaard/Toper/Toper";
 import RealChat from "../Pages/Dashboaard/RealChat/RealChat";
+import ManageSubcrib from "../Pages/Dashboaard/ManageSubcrib/ManageSubcrib";
 
 export const router = createBrowserRouter([
     {
@@ -31,7 +32,11 @@ export const router = createBrowserRouter([
             {
                 path:'realChat',
                 element:<RealChat/>
-            }
+            },
+            {
+                path:'manage',
+                element:<ManageSubcrib/>
+            },
         ]
     }
 
