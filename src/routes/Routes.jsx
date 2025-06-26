@@ -5,6 +5,7 @@ import SignIn from "../Components/SignIn/SignIn";
 import SignUp from "../Components/SignUp/SignUp";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import Toper from "../Pages/Dashboaard/Toper/Toper";
+import RealChat from "../Pages/Dashboaard/RealChat/RealChat";
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
             {
                 path: 'dashboard/toper',
                 element: <Toper />
+            },
+            {
+                path:'realChat',
+                element:<RealChat/>
             }
         ]
     }
