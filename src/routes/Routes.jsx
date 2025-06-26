@@ -7,6 +7,7 @@ import Dashboard from "../Layout/Dashboard/Dashboard";
 import Toper from "../Pages/Dashboaard/Toper/Toper";
 import RealChat from "../Pages/Dashboaard/RealChat/RealChat";
 import ManageSubcrib from "../Pages/Dashboaard/ManageSubcrib/ManageSubcrib";
+import Users from "../Pages/Dashboaard/Users/User";
 
 export const router = createBrowserRouter([
     {
@@ -30,12 +31,16 @@ export const router = createBrowserRouter([
                 element: <Toper />
             },
             {
-                path:'realChat',
-                element:<RealChat/>
+                path: 'realChat',
+                element: <RealChat />
             },
             {
-                path:'manage',
-                element:<ManageSubcrib/>
+                path: 'manage',
+                element: <ManageSubcrib />
+            },
+            {
+                path: 'users',
+                element: <Users />
             },
         ]
     }
