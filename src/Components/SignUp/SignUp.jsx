@@ -1,24 +1,56 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
-import img from '../../assets/Nil vyaa-01 1.png'
+// import img from '../../assets/Nil vyaa-01 1.png'
+import { message } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { useRegisterMutation } from '../../redux/features/auth/authApi';
 
-export default function CreateAccountForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+const CreateAccountForm = () => {
+  const navigate = useNavigate();
+  const [singUp] = useRegisterMutation();
+  
+  // Add missing state variables
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
+  
+  const handleSingUP = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirmPasswordValue = form.confirmPassword.value;
+
+    // Check if passwords match
+    if (password !== confirmPasswordValue) {
+      message.error('Passwords do not match');
+      return;
+    }
+
+    const data = {
+      email,
+      password,
+    };
+
+    try {
+      const result = await singUp(data).unwrap();
+      console.log('Account Create  success:', result);
+      if (result) {
+        // Show success message
+        alert('Account created successfully');
+        // Navigate to OTP page
+        navigate(`/otp?email=${email}`);
+      }
+    } catch (error) {
+      console.error('Registration failed:', error);
+      message.error(error?.data?.message || 'Registration failed');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-200 flex items-center justify-center p-4">
       <div className="w-full bg-white p-5 rounded-md shadow max-w-md">
-        {/* Logo */}
-        <div className="text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full">
-                <img src={img} alt="" className='w-60' />
-          </div>
-        </div>
-
         {/* Form Container */}
         <div className="bg-white rounded-lg shadow-sm p-8">
           <h1 className="text-2xl font-bold text-gray-900 text-center mb-2">
@@ -28,7 +60,8 @@ export default function CreateAccountForm() {
             Enter The Email Address Associated With Your Account. We'll Send You An OTP To Your Email.
           </p>
 
-          <div className="space-y-4">
+          {/* FIXED: Wrap inputs in a form element */}
+          <form onSubmit={handleSingUP} className="space-y-4">
             {/* Email Field */}
             <div>
               <label className="block text-gray-700 text-sm font-medium mb-2">
@@ -36,10 +69,10 @@ export default function CreateAccountForm() {
               </label>
               <input
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                name='email'
                 placeholder="Enter Email"
-                className="w-full px-4 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                required
+                className="text-black w-full px-4 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
               />
             </div>
 
@@ -51,10 +84,10 @@ export default function CreateAccountForm() {
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  name='password'
                   placeholder="Enter New Password"
-                  className="w-full px-4 py-1.5 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                  required
+                  className="w-full px-4 py-1.5 pr-12 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                 />
                 <button
                   type="button"
@@ -78,10 +111,12 @@ export default function CreateAccountForm() {
               <div className="relative">
                 <input
                   type={showConfirmPassword ? 'text' : 'password'}
+                  name='confirmPassword'
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="Confirm New Password"
-                  className="w-full px-4 py-1.5 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+                  required
+                  className="w-full text-black px-4 py-1.5 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
                 />
                 <button
                   type="button"
@@ -97,21 +132,20 @@ export default function CreateAccountForm() {
               </div>
             </div>
 
-            {/* Sign Up Button */}
+            {/* FIXED: Changed to type="submit" and moved inside form */}
             <button
-              type="button"
-              onClick={() => console.log('Sign up clicked')}
+              type="submit"
               className="w-full bg-blue-600 text-white py-1.5 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors focus:ring-4 focus:ring-blue-200 focus:outline-none"
             >
               Sign Up
             </button>
-          </div>
+          </form>
 
           {/* Login Link */}
           <div className="text-center mt-6">
             <span className="text-gray-600 text-sm">
               Already Have An Account?{' '}
-              <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">
+              <a href="/signIn" className="text-blue-600 hover:text-blue-700 font-medium">
                 Login
               </a>
             </span>
@@ -120,4 +154,6 @@ export default function CreateAccountForm() {
       </div>
     </div>
   );
-}
+} 
+
+export default CreateAccountForm;
