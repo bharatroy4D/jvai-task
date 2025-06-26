@@ -8,3 +8,6 @@
 .secondary {
   background-color: #1E293B;
 }
+html {
+  scroll-behavior: smooth;
+}

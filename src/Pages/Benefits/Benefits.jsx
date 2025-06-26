@@ -1,5 +1,6 @@
 import React from 'react';
 import SectionTitle from '../../Components/SectionTitle/SectionTitle';
+import { Link } from 'react-router-dom';
 
 const Benefits = () => {
   return (
@@ -42,15 +43,19 @@ const Benefits = () => {
 
       {/* Buttons */}
       <div className='flex gap-5 mb-10'>
-        <button className='text-lg font-medium transform border-2 border-[#3E84F6] rounded-full px-5 py-2 hover:shadow-md hover:shadow-[#3E84F6] hover:-translate-y-1 transition duration-300'>
-          Sign in
-        </button>
+                <Link to={'/signIn'}>
+                    <button className='text-lg font-medium transform border-2 border-[#3E84F6] rounded-full px-5 py-2 hover:shadow-md hover:shadow-[#3E84F6] hover:-translate-y-1 transition duration-300'>
+                        Sign in
+                    </button>
+                </Link>
 
-        <button className='text-lg font-medium transform border-2 border-[#3E84F6] bg-[#3E84F6] text-white rounded-full px-5 py-2 hover:shadow-md hover:shadow-[#3E84F6] hover:-translate-y-1 transition duration-300'>
-          Sign up
-        </button>
+               <Link to={'/signUp'}>
+                <button className='text-lg font-medium transform border-2 border-[#3E84F6] bg-[#3E84F6] text-white rounded-full px-5 py-2 hover:shadow-md hover:shadow-[#3E84F6] hover:-translate-y-1 transition duration-300'>
+                    Sign up
+                </button>
+               </Link>
 
-      </div>
+            </div>
     </div>
   );
 }
