@@ -4,7 +4,7 @@ import About from "../Pages/About/About";
 import SignIn from "../Components/SignIn/SignIn";
 import SignUp from "../Components/SignUp/SignUp";
 import Dashboard from "../Layout/Dashboard/Dashboard";
-import TopBar from "../Components/Topbar/Topbar";
+import Toper from "../Pages/Dashboaard/Toper/Toper";
 
 export const router = createBrowserRouter([
     {
@@ -22,8 +22,11 @@ export const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <Dashboard />,
-        children:[
-          
+        children: [
+            {
+                path: 'dashboard/toper',
+                element: <Toper />
+            }
         ]
     }
 
