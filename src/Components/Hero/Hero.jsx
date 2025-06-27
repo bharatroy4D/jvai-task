@@ -25,7 +25,7 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e3a8a 100%)' }}>
+    <div className="min-h-screen  relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e3a8a 100%)' }}>
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         {/* Large background circles */}
@@ -109,11 +109,11 @@ const LandingPage = () => {
         </h1>
 
         {/* Main Description */}
-        <div className="max-w-4xl mx-auto mb-8">
-          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+        <div className="max-w-6xl mx-auto mb-8">
+          <p className="text-xl w-full md:text-2xl text-gray-300 leading-relaxed">
             Revolutionizing clinical documentation through{' '}
             <span className="text-orange-400 font-semibold">HIPAA COMPLIANT</span>{' '}
-            advanced artificial intelligence, giving healthcare providers more time for what truly matters — patient care.{' '}
+            advanced <br /> artificial intelligence, giving healthcare providers more time for what truly matters — patient care.{' '}
             <span className="text-orange-400 font-semibold">try it for FREE</span>{' '}
             today
           </p>

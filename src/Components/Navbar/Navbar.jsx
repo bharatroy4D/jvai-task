@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../redux/features/auth/authSlice';
@@ -7,22 +7,48 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [activeHash, setActiveHash] = useState(location.hash || '#About');
 
   const auth = useSelector((state) => state.auth);
   const rawToken = auth?.token;
   const token = rawToken ? rawToken.replace(/^"|"$/g, '') : null;
+
+  // Update activeHash when location changes
+  useEffect(() => {
+    setActiveHash(location.hash || '#About');
+  }, [location.hash]);
+
+  // Add scroll listener to update active section based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['#About', '#Solutions', '#Action', '#Technology', '#Benefits', '#Case'];
+      const scrollPosition = window.scrollY + 100; // Offset for fixed navbar
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.querySelector(sections[i]);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveHash(sections[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleLogout = () => {
     dispatch(logoutUser());
     navigate('/signIn');
   };
 
-  const isActive = (hash) => location.hash === hash;
+  const isActive = (hash) => activeHash === hash;
 
   const scrollToSection = (id) => {
     const el = document.querySelector(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
+      setActiveHash(id); // Update active hash immediately
       window.history.pushState(null, null, id);
     }
   };
@@ -43,10 +69,10 @@ const Navbar = () => {
 
         <div className="drawer-content">
           <div className="flex justify-between w-11/12 mx-auto items-center">
-            {/* Option 1: Fixed width and height with Tailwind classes */}
+            {/* Logo */}
             <div className='flex items-center space-x-2'>
               <svg 
-                className="w-10 h-10" // Fixed size: 40px x 40px
+                className="w-10 h-10"
                 viewBox="0 0 100 100" 
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -68,7 +94,7 @@ const Navbar = () => {
 
             {/* Mobile menu button */}
             <div className="lg:hidden">
-              <label htmlFor="my-drawer" className="btn btn-ghost drawer-button">
+              <label htmlFor="my-drawer" className="btn btn-ghost drawer-button text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -88,12 +114,18 @@ const Navbar = () => {
                   <li key={item.id}>
                     <button
                       onClick={() => scrollToSection(item.id)}
-                      className={`relative group transition text-[#93A2B7] hover:text-white ${
-                        isActive(item.id) ? 'text-white' : ''
+                      className={`relative group transition duration-300 ${
+                        isActive(item.id) 
+                          ? 'text-white' 
+                          : 'text-[#93A2B7] hover:text-white'
                       }`}
                     >
                       {item.name}
-                      <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                      <span 
+                        className={`absolute left-0 -bottom-1 h-[2px] bg-white transition-all duration-300 ${
+                          isActive(item.id) ? 'w-full' : 'w-0 group-hover:w-full'
+                        }`}
+                      ></span>
                     </button>
                   </li>
                 ))}
@@ -118,7 +150,16 @@ const Navbar = () => {
           <ul className="menu p-4 w-[60%] min-h-full bg-base-200 text-base-content">
             {menuItems.map((item) => (
               <li key={item.id}>
-                <button onClick={() => scrollToSection(item.id)}>{item.name}</button>
+                <button 
+                  onClick={() => {
+                    scrollToSection(item.id);
+                    // Close mobile menu
+                    document.getElementById('my-drawer').checked = false;
+                  }}
+                  className={isActive(item.id) ? 'text-blue-600 font-bold' : ''}
+                >
+                  {item.name}
+                </button>
               </li>
             ))}
 
